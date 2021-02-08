@@ -1,11 +1,15 @@
 
 <h1>TheMovieDB demo</h1>
 <h2>Implemented using:</h2>
+
 **Backend**: PHP 7.4, Laravel 8.x, passport 10.1, Laravel-cors 2.x, guzzle 7.04,...
+
 **Frontend**: Bootstrap 4.6.x, Vue, 2.6.x, Vue-axios 2.1.x, Vuex 3.6.x, Vuex-persistedState 3.2.x, Vue-router3.5.x, ... Vue-bootstrap components, sass css templating, bootstrap 4 compatible (vue argon features).
+
 **TheMovieDB**: Api version 3
 
 **Overview**:
+
 This demo version shows front and backend -skills, implementing the requirements as described. I've taken some liberty in how to represent the frontend and UI/UX design. as a result, I consequently choose to use a 'searchable table' configuration where all data can be filtered, paginated, sorted and searched upon by date and keywords. This type of design is mostly found in user-friendly and feature-rich admin panels. If a more graphical representation (like such used in webshops) would be more favorable, then all it takes is to simply change the Vue bootstrap table with the appropriate templates using the same available data.
 
 **Base URL application**: (localhost connection)
@@ -13,6 +17,7 @@ This demo version shows front and backend -skills, implementing the requirements
 - http://movie-app/ frontend
 
 **Features**:
+
 	**Frontend** ( location: resources/js )
   * Filtering between the start and end date (calendar component).
   * Search by TheMovieDB provided keywords (keyword search component).
@@ -29,8 +34,10 @@ This demo version shows front and backend -skills, implementing the requirements
   * All Axios ajax backend logic resides in the Vuex store organized in modules for each feature. Connections in the store are data agnostic. Components declare the connection by individual parameters. The store intercepter acts as a single point handler for "access token" and "refresh token" updates. It automatically retries on error and redirects to the login page when a refresh token expires or on none 401 errors.
   * Mixins for various components ( DRY ).
   * Route file.
-- The demo was tested on large and medium screen sizes. Small updates are required for mobile use. 
+- The demo was tested on large and medium screen sizes. Small updates are required for mobile use.
+
 	**Backend**:
+  
   * API routes type, application interface.
   * Resource controllers with policy type security for model-driven data as recommended by Laravel.
   * Custom controller for TMDB connections. Middleware type security for none model-driven resources ( MovieController ).
