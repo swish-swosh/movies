@@ -1,63 +1,47 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h1>TheMovieDB demo</h1>
+<h2>Implemented using:</h2>
+Backend: PHP 7.4, Laravel 8.x, passport 10.1, Laravel-cors 2.x, guzzle 7.04,...
+Frontend: Bootstrap 4.6.x, Vue, 2.6.x, Vue-axios 2.1.x, Vuex 3.6.x, Vuex-persistedState 3.2.x, Vue-router3.5.x, ... Vue-bootstrap components, sass css templating, bootstrap 4 compatible (vue argon features).
+TheMovieDB: Api version 3
 
-## About Laravel
+Overview:
+This demo version shows front and backend -skills, implementing the requirements as described. I've taken some liberty in how to represent the frontend and UI/UX design. as a result, I consequently choose to use a 'searchable table' configuration where all data can be filtered, paginated, sorted and searched upon by date and keywords. This type of design is mostly found in user-friendly and feature-rich admin panels. If a more graphical representation (like such used in webshops) would be more favorable, then all it takes is to simply change the Vue bootstrap table with the appropriate templates using the same available data.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Base URL application: (localhost connection)
+- http://movie-app/api/ backend
+- http://movie-app/ frontend
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Features:
+	Frontend ( location: resources/js )
+⦁	Filtering between the start and end date (calendar component).
+⦁	Search by TheMovieDB provided keywords (keyword search component).
+⦁	Pagination, using de appropriate buttons in the top and bottom sections of the table.
+⦁	Filtering on designated column headers.
+⦁	Detail selection by clicking a row + details button, or by double-clicking a single row.
+⦁	Details containing title, genres, likes, votes, posters, and backdrops, link to IMDB site for more info, budget, cast, crew, ... easy reconfigurable and expanded via the Vue templates.
+⦁	User create/login/logout/password-recovery management.
+⦁	Form validations.
+⦁	Url path (api) aware pages, including modals for credentials and movie details.
+⦁	Breadcrumb.
+⦁	Local storage using Vuex for user credentials ( access token, refresh token, expire date, and "remember me" state. Global settings that hold user roles. Tokens expire dates are set by the backend. Local storage is encrypted by default. (disabled when developing).
+⦁	All project components are organized in the js frontend folder structure according to type, usage, and relationship with other parts. Code duplication is at its minimum and additional features can easily be included/removed.
+⦁	All Axios ajax backend logic resides in the Vuex store organized in modules for each feature. Connections in the store are data agnostic. Components declare the connection by individual parameters. The store intercepter acts as a single point handler for "access token" and "refresh token" updates. It automatically retries on error and redirects to the login page when a refresh token expires or on none 401 errors.
+⦁	Mixins for various components ( DRY ).
+⦁	Route file.
+- The demo was tested on large and medium screen sizes. Small updates are required for mobile use. 
+	Backend:
+⦁	API routes type, application interface.
+⦁	Resource controllers with policy type security for model-driven data as recommended by Laravel.
+⦁	Custom controller for TMDB connections. Middleware type security for none model-driven resources ( MovieController ).
+⦁	Requests for server-side validation.
+⦁	Resources for json responses (none TMDB data).
+⦁	.env stored TMDB_TOKEN 
+⦁	Laravel Passport Middleware as token-handler, security, and middleware (using Guzzle - as recommended by Laravel ).
+⦁	User model with role-based management - relationship.
+⦁	Frontend Vue mixin.
+⦁	Mail templating ( password recovery etc ).
+For full details, I suggest a full code review where I've included the necessary remarks. Please contact me for additional questions or remarks.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# movies" 
