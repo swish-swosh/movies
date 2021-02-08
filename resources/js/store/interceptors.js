@@ -53,29 +53,24 @@ axios.interceptors.response.use((response) => {
 
       // failed on tokenRefresh ?
       if(originalRequest.url == globals.baseUrlBackend+globals.urlRefreshPath){
-        console.log('#2 OK')
         router.push({name: 'login'}).catch(()=>{})
       }
 
       // hold subsequent requests in the holdQueue while refresh token is being processed which is
       // mandatory when processing multiple requests ( if not, next requests will invalidate the running refresh token process)
       if (isRefreshing) {
-        console.log('#3 OK')
         return new Promise(function(resolve, reject) {
           holdQueue.push({ resolve, reject })
         })
         .then(token => {
-          console.log('#4')
           originalRequest.headers['Authorization'] = 'Bearer ' + token
           return axios(originalRequest)
         })
         .catch(err => {
-          console.log('#5') // (#validate!)
           return Promise.reject(err)
         })
       }
 
-      console.log('#6 OK')
       // startup refersh
       isRefreshing = true
       originalRequest._retry = true
@@ -86,7 +81,6 @@ axios.interceptors.response.use((response) => {
 
       // get new token via refreshToken
       try {
-      console.log('#7 OK')
       const response = await axios.post(globals.baseUrlBackend + globals.urlRefreshPath,
         {}, // body
         { 
@@ -94,7 +88,6 @@ axios.interceptors.response.use((response) => {
         }
       )
 
-      console.log('#8')
       // update tokens + dateTime expire with returned updates (#validate!)
       store.commit('auth/SET_ACCESS_TOKEN', response.data.access_token)
       store.commit('auth/SET_REFRESH_TOKEN', response.data.refresh_token)
@@ -103,19 +96,16 @@ axios.interceptors.response.use((response) => {
       return axios(originalRequest)
   
       } catch(err) {
-        console.log('#9')
         // refresh failed // (#validate!)
         processQueue(err, null)
         router.push({name: 'login'}).catch(()=>{})
         return Promise.reject(error)
 
       } finally {
-        console.log('#10')
         isRefreshing = false
       }
     }
     // error none 401 or originalRequest._retry true // (#validate!)
-    console.log('#11')
     return Promise.reject(error)
   })
 }
