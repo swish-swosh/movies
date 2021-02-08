@@ -1,0 +1,18 @@
+[
+    {
+        "name": "",
+        "icon": "",
+        "order": 2,
+        "path": "",
+        "pathName": "",
+        "menuEntry": "nav-item-divider"
+    },
+    {
+        "name": "Logout",
+        "icon": "plug",
+        "order": 3,
+        "path": "",
+        "pathName": "logout",
+        "menuEntry": "nav-item-click"
+    }
+]
