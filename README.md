@@ -17,8 +17,7 @@ This demo version shows front and backend -skills, implementing the requirements
 - http://movie-app/ frontend
 
 **Features**:
-
-	**Frontend** ( location: resources/js )
+**Frontend** ( location: resources/js )
   * Filtering between the start and end date (calendar component).
   * Search by TheMovieDB provided keywords (keyword search component).
   * Pagination, using de appropriate buttons in the top and bottom sections of the table.
@@ -36,8 +35,7 @@ This demo version shows front and backend -skills, implementing the requirements
   * Route file.
 - The demo was tested on large and medium screen sizes. Small updates are required for mobile use.
 
-	**Backend**:
-  
+**Backend**:
   * API routes type, application interface.
   * Resource controllers with policy type security for model-driven data as recommended by Laravel.
   * Custom controller for TMDB connections. Middleware type security for none model-driven resources ( MovieController ).
