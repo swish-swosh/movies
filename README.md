@@ -17,7 +17,7 @@ This demo version shows front and backend methods for theMovieDB API resources. 
 - http://movie-app/ frontend
 
 **Live demo**:
-https://movies.swish-swosh.com/ (feel free to register and test)
+https://movies.swish-swosh.com/movies (feel free to register and test)
 
 **Features**:
 **Frontend** ( location: resources/js )
