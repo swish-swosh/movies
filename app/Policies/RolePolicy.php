@@ -19,7 +19,7 @@ class RolePolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasAnyRoles(['guest']);
+        return $user->hasAnyRoles(['admin']);
     }
 
     /**
@@ -31,7 +31,7 @@ class RolePolicy
      */
     public function view(User $user, Role $role)
     {
-        return $user->hasAnyRoles(['guest']);
+        return $user->hasAnyRoles(['admin']);
     }
 
     /**
