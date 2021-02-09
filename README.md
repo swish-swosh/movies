@@ -10,7 +10,7 @@
 
 **Overview**:
 
-This demo version shows front and backend -skills, implementing the requirements as described. I've taken some liberty in how to represent the frontend and UI/UX design. as a result, I consequently choose to use a 'searchable table' configuration where all data can be filtered, paginated, sorted and searched upon by date and keywords. This type of design is mostly found in user-friendly and feature-rich admin panels. If a more graphical representation (like such used in webshops) would be more favorable, then all it takes is to simply change the Vue bootstrap table with the appropriate templates using the same available data.
+This demo version shows front and backend methods for theMovieDB API resources. I've taken some liberty in how to represent the frontend and UI/UX design. as a result, I consequently choose to use a 'searchable table' configuration where all data can be filtered, paginated, sorted and searched upon by date and keywords. This type of design is mostly found in user-friendly and feature-rich admin panels. If a more graphical representation (like such used in webshops) would be more favorable, then all it takes is to simply change the Vue bootstrap table with the appropriate templates using the same available data.
 
 **Base URL application**: (localhost connection)
 - http://movie-app/api/ backend
@@ -47,7 +47,7 @@ This demo version shows front and backend -skills, implementing the requirements
   * Frontend Vue mixin.
   * Mail templating ( password recovery etc ).
   
-For full details, I suggest a full code review where I've included the necessary remarks. Please contact me for additional questions or remarks.
+For full details, I suggest a full code review where I've included the necessary remarks!
 
 
 
