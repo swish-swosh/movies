@@ -37,10 +37,10 @@ Route::middleware([CheckClientCredentials::class, 'auth:api'])->group(function (
 });
 
 // none resource controllers, not using models
-Route::get('movies', [MovieController::class, 'index'])->middleware('role:guest');
-Route::get('movies/{id}', [MovieController::class, 'show'])->middleware('role:guest');
-Route::get('movies/credits/{id}', [MovieController::class, 'credits'])->middleware('role:guest');
-Route::get('configuration', [MovieController::class, 'configuration'])->middleware('role:guest');
+Route::get('movies', [MovieController::class, 'index'])->middleware('role:admin');
+Route::get('movies/{id}', [MovieController::class, 'show'])->middleware('role:admin');
+Route::get('movies/credits/{id}', [MovieController::class, 'credits'])->middleware('role:admin');
+Route::get('configuration', [MovieController::class, 'configuration'])->middleware('role:admin');
 
 // all resources controllers demand authentication.
 Route::resources([
