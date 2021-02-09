@@ -16,6 +16,9 @@ This demo version shows front and backend methods for theMovieDB API resources. 
 - http://movie-app/api/ backend
 - http://movie-app/ frontend
 
+**Live demo**:
+https://movies.swish-swosh.com/ (feel free to register and test)
+
 **Features**:
 **Frontend** ( location: resources/js )
   * Filtering between the start and end date (calendar component).
